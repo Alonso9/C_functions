@@ -37,7 +37,7 @@ void fun(){
   scanf("%f",&a[i]); 
  }
  for(int j=0; j<20; j++){
-  gotoxy(10,21+j); printf("The number in the position [%d] is [%.i2f] \n",j,a[j]);
+  gotoxy(10,21+j); printf("The number in the position [%d] is [%.2f] \n",j,a[j]);
  }
 
 }
