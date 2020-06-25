@@ -1,0 +1,49 @@
+/////////////////// gotoxy(x,y) ////////////////////////////////////////////
+#include <stdio.h>
+#include <stdlib.h>
+/////////////////////////////////////////////////////////////////////////
+
+/////funciones auxilares/////////////////////////////////////////////////
+void gotoxy(int x, int y);
+void txy(int x, int y, char *txt);
+void clrscr();
+void pedirv(int *v);
+void primos();
+///////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////void principal////////////////////////////////
+void main(){
+ primos();
+}
+///////////////////////////////////////////////////////////////////////////
+
+
+/////////////////funciones de apoyo///////////////////////////////////////
+void txy(int x, int y, char *txt){
+ gotoxy(x,y);
+ printf("%s",txt);
+}
+void gotoxy(int x, int y){
+ printf("%c[%d;%df",0x1B,y,x);
+}
+void clrscr(void){
+ system("clear");
+}
+void pedirv(int *v){
+ txy(10,10,"Ingresa hasta que numero de primos: ");
+ scanf("%d",v);
+}
+void primos(){
+ int a,cont=0;
+ pedirv(&a);
+ for(int i=2; i<=a; i++){
+   for(int x=2; x<=i; x++){
+      if(i % x==0)
+        cont++;
+   if(cont==1)
+        printf("\n %d",i);
+   cont=0;
+   } 
+ } 
+}
+///////////////////////////////////////////////////////////////////////////
